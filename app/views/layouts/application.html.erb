@@ -13,6 +13,9 @@
   <body>
     <nav>
       <%= link_to "Home", root_path %>
+      <% if current_user %>
+        <h3><%= "Logged in as User # #{current_user.id}"%></h3>
+      <% end %>
     </nav>
 
     <% flash.each do |name, msg| %>

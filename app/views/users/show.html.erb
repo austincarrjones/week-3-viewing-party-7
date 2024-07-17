@@ -1,4 +1,5 @@
 <h2><%= @user.name %>'s Dashboard</h2>
+<p><%= cookies.encrypted[:location] %>
 
 <%= button_to "Find Top Rated Movies", movies_path(@user), method: :get %><br>
 
