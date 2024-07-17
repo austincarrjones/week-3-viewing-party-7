@@ -1,10 +1,5 @@
 class WelcomeController < ApplicationController 
   def index
+    @users = User.all
   end
-  
-  # def show 
-  #   if current_user != nil
-  #     redirect_to user_path
-  #   end
-  # end 
 end 

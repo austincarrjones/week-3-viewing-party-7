@@ -39,19 +39,17 @@ class UsersController < ApplicationController
   end
 
   def logout
-    # binding.pry
     session.delete :user_id
-    # cookies.encrypted.delete :location
     redirect_to root_path
     flash[:success] = "Logged out successfully"
   end
 
-  def require_user
-    if !current_user
-      flash[:error] = "You must log in"
-      redirect_to root_path
-    end
-  end
+  # def require_user
+  #   if !current_user
+  #     flash[:error] = "You must log in"
+  #     redirect_to root_path
+  #   end
+  # end
 
   private 
 
