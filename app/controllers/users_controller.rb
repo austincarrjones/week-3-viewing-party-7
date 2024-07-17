@@ -25,32 +25,6 @@ class UsersController < ApplicationController
   def login_form
   end
 
-  def login
-    user = User.find_by(email: params[:email])
-    if user.authenticate(params[:password])
-      cookies.encrypted[:location] = { value: params[:location], expires: 1.day}
-      session[:user_id] = user.id
-      flash[:success] = "Welcome, #{user.name}!"
-      redirect_to user_path(user)
-    else
-      flash[:error] = "Sorry, your credentials are bad."
-      render :login_form
-    end
-  end
-
-  def logout
-    session.delete :user_id
-    redirect_to root_path
-    flash[:success] = "Logged out successfully"
-  end
-
-  # def require_user
-  #   if !current_user
-  #     flash[:error] = "You must log in"
-  #     redirect_to root_path
-  #   end
-  # end
-
   private 
 
   def user_params 
